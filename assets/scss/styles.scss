@@ -1,0 +1,12 @@
+/* On importe les styles communs */
+@import "./common/normalize";
+@import "./common/variables";
+@import "./common/mixins";
+@import "./common/common";
+
+/* On importe les styles généraux */
+@import "./elements/general";
+
+/* On importe les styles personnalisés */
+@import "./elements/header";
+@import "./elements/footer";
