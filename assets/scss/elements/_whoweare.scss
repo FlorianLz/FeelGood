@@ -1,8 +1,56 @@
 .whoweare{
+  background-image: url('/assets/images/interrogation.png');
   background-color: $grey_background;
-  padding-top: 2em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10em;
+  padding-bottom: 10em;
+  font-family: "Roboto";
+
 
   h2{
     text-align: center;
+    font-size: 2.5em;
+    position: relative;
+    color: $grey_fonts;
+    font-family: "RobotoBold";
+  }
+
+  h2::after{
+    content: "";
+    bottom: 0;
+    position: absolute;
+    border-bottom: 0.2em solid $red;
+    left: 41%;
+    width: 18%;
+  }
+
+  .whoweareInfos{
+    display: block;
+    width: 70%;
+    margin-top: 5em;
+    margin-left: auto;
+
+    div{
+      display: flex;
+      align-items: center;
+
+      div{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .nomPsn{
+    padding-top: 0.8em;
+  }
+
+  .textExplicatif{
+    padding-top: 3em;
+  }
+
+  .whoweareAvatar{
+    width: 50%;
   }
 }
