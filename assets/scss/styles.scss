@@ -4,6 +4,10 @@
 @import "./common/mixins";
 @import "./common/common";
 
+/* On importe les setting */
+@import "./settings/colors";
+@import "./settings/fonts";
+
 /* On importe les styles généraux */
 @import "./elements/general";
 
