@@ -1,4 +1,24 @@
 footer{
   background-color: $red;
   color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "RobotoBold";
+
+  div{
+    width: 10%;
+  }
+
+  p{
+    margin-left: 1em;
+    font-weight: bold;
+  }
+
+  .icone_footer{
+    width: 20%;
+    margin-left: 2em;
+  }
 }
