@@ -60,3 +60,28 @@
     }
   }
 }
+
+@media screen and (max-width : 800px) {
+  .section3{
+    div{
+      margin-right:auto;
+      margin-left:auto;
+      > h3:after{
+      width:100%;
+      }
+      >h3{
+        padding-bottom:1rem;
+      }
+      div{
+        margin:auto!important;
+        padding-top:1rem;
+        >.Rectangle{
+          width:90vw;
+        }
+        >.Rectanglegray{
+          margin-top:1rem!important;
+        }
+      }
+    }
+  }
+}

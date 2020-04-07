@@ -65,3 +65,34 @@
     }
   }
 }
+
+@media screen and (max-width : 800px) {
+  .section2 {
+    h3{
+      padding:1rem;
+    }
+    h3 span{
+      display: inline-block;
+      margin-left: 0!important;
+      font-size:1.3rem!important;
+    }
+    .cpt span{
+      margin:0!important;
+    }
+    .cpt p{
+      margin:0!important;
+      font-size:1.3rem!important;
+      padding-bottom:1rem;
+      display: inline-block;
+    }
+    .CompteArebour{
+      display: inline;
+    }
+    .cpt{
+      flex-direction: column!important;
+    }
+
+
+
+  }
+}

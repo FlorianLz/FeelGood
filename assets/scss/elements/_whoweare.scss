@@ -54,3 +54,22 @@
     width: 50%;
   }
 }
+
+@media screen and (max-width : 800px) {
+  .whoweare{
+    padding-bottom:1rem;
+    h2{
+      font-size:2rem;
+      &:after{
+        width:80%;
+        left:10%;
+      }
+    }
+    .whoweareInfos{
+      margin-right:auto;
+      .textExplicatif{
+        padding:2rem 0 2rem 0;
+      }
+    }
+  }
+}

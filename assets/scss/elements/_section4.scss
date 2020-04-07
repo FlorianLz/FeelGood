@@ -1,6 +1,6 @@
 .section4{
   font-family: "Roboto";
-  height:55rem;
+  padding-bottom: 5rem;
   margin-top: 2rem;
 
   div{
@@ -56,6 +56,16 @@
       &.info {
         flex-direction: column;
         width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width : 800px) {
+  .section4{
+    div h3{
+      &:after{
+        width:100%;
       }
     }
   }

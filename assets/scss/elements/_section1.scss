@@ -25,3 +25,20 @@
     }
   }
 }
+
+@media screen and (max-width : 800px) {
+  .section1{
+    div{
+      height:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h2{
+        font-size:1.9rem;
+      }
+      div{
+        display:none;
+      }
+    }
+  }
+}

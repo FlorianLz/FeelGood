@@ -113,7 +113,7 @@ include ('bdd/bd.php');
 
     <section class="section3" id="realisations">
       <div>
-        <h3>Les réalisations du defi d'hier </h3>
+        <h3>Les réalisations du défi précédent </h3>
           <?php
           $hier=$id-1;
           $sql="SELECT url FROM videos WHERE id_defi=? AND visible=1 ORDER by id DESC LIMIT 5";

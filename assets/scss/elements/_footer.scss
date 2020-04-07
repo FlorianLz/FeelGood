@@ -22,3 +22,18 @@ footer{
     margin-left: 2em;
   }
 }
+
+@media screen and (max-width : 800px) {
+  footer{
+    height:4rem;
+    padding:0;
+    p{
+      font-size:0.8rem;
+    }
+    div{
+      width:30%;
+      display: flex;
+      margin-right: 1em;
+    }
+  }
+}

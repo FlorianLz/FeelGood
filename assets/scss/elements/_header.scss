@@ -25,3 +25,20 @@ header{
     }
   }
 }
+
+@media screen and (max-width : 800px) {
+  header{
+    width:100vw;
+    position:fixed;
+    height:4rem;
+    z-index:100;
+    div{
+      .logo{
+        font-size: 1rem;
+      }
+      .menu{
+        display:none;
+      }
+    }
+  }
+}
