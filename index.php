@@ -5,13 +5,14 @@ include ('bdd/bd.php');
     $query=$pdo->prepare($sql);
     $query->execute();
     $line=$query->fetch();
+    $id=$line['id'];
 ?>
 
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
   <head>
 
-    <title>Titre</title>
+    <title>FeelGood</title>
     <!-- Chargement des metas -->
     <meta name="description" content="Ma description..."/>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -61,7 +62,7 @@ include ('bdd/bd.php');
             <h3>Défi du jour :  <span><?php echo($line['description']); ?></span></h3>
           </div>
           <div class="cpt">
-            <p>Nouveau défi dans ...</p>
+            <p>Nouveau défi dans</p>
             <div id="CompteArebour" class="CompteArebour">
               <div id="contour">
                 <div id="heures"></div>
@@ -113,27 +114,33 @@ include ('bdd/bd.php');
     <section class="section3" id="realisations">
       <div>
         <h3>Les réalisations du defi d'hier </h3>
-        <div>
-          <div class="Rectangle">
-            <div class="boutonplay"></div>
+          <?php
+          $hier=$id-1;
+          $sql="SELECT url FROM videos WHERE id_defi=? AND visible=1 ORDER by id DESC LIMIT 5";
+          $sql1="SELECT description FROM defis WHERE id=?";
+          $query=$pdo->prepare($sql);
+          $query1=$pdo->prepare($sql1);
+          $query->execute(array($hier));
+          $query1->execute(array($hier));
+          $line=$query1->fetch()?>
+          <h2 class="anciendefi"><?php echo($line['description']); ?></h2>
+          <div>
+              <?php
+              while($linee=$query->fetch()){ ?>
+                  <div class="Rectangle">
+                      <video class="player_video" controls>
+                          <source src="/FeelGood<?php echo $linee['url']; ?>" id="video_here">
+                          Your browser does not support HTML5 video.
+                      </video>
+                  </div>
+                 <?php
+              }
+              ?>
+              <div class="Rectanglegray">
+                <p>Voir plus<br>de vidéos</p>
+                <img src="assets/images/play.png">
+              </div>
           </div>
-          <div class="Rectangle">
-            <div class="boutonplay"></div>
-          </div>
-          <div class="Rectangle">
-            <div class="boutonplay"></div>
-          </div>
-          <div class="Rectangle">
-            <div class="boutonplay"></div>
-          </div>
-          <div class="Rectangle">
-            <div class="boutonplay"></div>
-          </div>
-          <div class="Rectanglegray">
-            <p>Voir plus<br>de vidéos</p>
-            <img src="assets/images/play.png">
-          </div>
-        </div>
       </div>
     </section>
 
@@ -215,7 +222,7 @@ include ('bdd/bd.php');
 
         <p class="textExplicatif">
           Étudiants en 2ème année de DUT MMI à Lens, nous avions pour sujet d'Anglais de réfléchir à une création informatique qui pourrait aider les personnes durant ce confinement.
-          Nous en avions marre des médias qui nous donnent de mauvaises ondes, c'est pour cela que nous avons eu l'idée de ce site !
+            Nous avons constaté que les médias nous envoient beaucoup de mauvaises ondes, c'est pour cela que nous avons eu l'idée de mettre en avant de bonnes ondes !
           Nous voulons donner que du positif durant cette période en collaborant ensemble.
         </p>
       </div>
