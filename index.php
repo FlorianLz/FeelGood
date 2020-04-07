@@ -78,12 +78,37 @@ include ('bdd/bd.php');
           </div>
         </div>
         <div>
-          <div>
+          <div id="participer">
             <p class="Rectangle">Je participe</p>
           </div>
         </div>
       </div>
     </section>
+
+    <div id="modaleParticipation" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="espace_upload">
+                <form id="upload_form" enctype="multipart/form-data" method="post">
+                    <label for="file1"><img src="assets/images/upload.png"></label>
+                    <input type="file" name="file1" id="file1" accept="video/*" class="file_video"><br>
+                    <input type="submit" value="Upload File" id="envoi">
+                    <!--<progress id="progressBar" value="0" max="100" style="width:300px;"></progress>--><p id="percent"></p>
+                    <h3 id="status"></h3>
+                </form>
+
+                <video width="400" class="player_video" controls>
+                    <source src="mov_bbb.mp4" id="video_here">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+        </div>
+    </div>
 
     <section class="section3">
       <div>
@@ -205,6 +230,7 @@ include ('bdd/bd.php');
       </div>
     </footer>
   <!-- Chargement des scripts utiles -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CIntersectionObserver%2CArray.from%2CNodeList.prototype.forEach"></script>
     <script src="./assets/js/script.bundle.js"></script>
     <script>
@@ -236,7 +262,6 @@ include ('bdd/bd.php');
 
         }, 1000);
       }
-
     </script>
 
   </body>
