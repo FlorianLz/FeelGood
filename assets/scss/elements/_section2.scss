@@ -1,0 +1,64 @@
+
+.section2{
+  font-family: "Roboto";
+  div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "roboto";
+    flex-wrap: wrap;
+    div{
+      flex-direction: column;
+      div{
+        h3{
+          font-size: 2rem;
+          margin-top: 2rem;
+          span{
+            font-size:1.5rem;
+            font-weight: normal;
+            margin-left:4rem;
+          }
+        }
+        h3::after{
+          content:"";
+          width: 12.2rem;
+          height: 1rem;
+          background-color: $red; ;
+          display: block;
+        }
+        .Rectangle{
+          background-color: $red;
+          padding:2rem;
+          border-radius:1.5rem;
+          color:white;
+          margin-top: 2rem;
+        }
+      }
+      .cpt {
+        display: flex;
+        flex-direction: row;
+        p {
+          font-size: 2rem;
+          margin-left: 9rem;
+          margin-top: 2rem;
+          margin-right: 2rem;
+        }
+        .CompteArebour {
+          display: flex;
+          flex-direction: row;
+          #contour{
+            border: 1px solid grey;
+            border-radius:1rem;
+            padding:1.5rem;
+            font-size:1.5rem;
+          }
+        }
+        span{
+          font-size: 3rem;
+          margin-right:1rem;
+          margin-left:1rem;
+        }
+      }
+    }
+  }
+}

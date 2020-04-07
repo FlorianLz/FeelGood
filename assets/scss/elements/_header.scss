@@ -1,0 +1,27 @@
+header{
+  background-color: $red;
+  div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+      color: white;
+      font-size:1.2rem;
+      margin-left: 1rem;
+    }
+    .menu{
+      margin-right:2rem;
+      a{
+        text-decoration: none;
+        color: white;
+        p{
+          margin-right:1rem;
+        }
+      }
+      p{
+        margin-right:1rem;
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.section4{
+  font-family: "Roboto";
+  height:55rem;
+  margin-top: 2rem;
+
+  div{
+    width: 80%;
+    margin: 0 auto;
+    h3{
+      font-size: 2rem;
+      padding-top:2rem;
+    }
+    h3::after{
+      content:"";
+      width: 22rem;
+      height: 1rem;
+      background-color: $red; ;
+      display: block;
+    }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+      div {
+        margin-top: 5rem;
+        width: 50%;
+
+        @media only screen and (max-width : 1200px) {
+          width: 80%;
+        }
+        &.Rectangle {
+          background-color: $red;
+          height: 7.5rem;
+          width: 15rem;
+          border-radius: 1rem;
+          position: relative;
+          .boutonplay {
+            width: 20%;
+            height: 40%;
+            background-image: url("../../assets/images/icone_play.png");
+            background-size: cover;
+            position: absolute;
+            z-index: 20;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -200%);
+          }
+          p{
+            margin-top: 10rem;
+
+          }
+        }
+      }
+      &.info {
+        flex-direction: column;
+        width: auto;
+      }
+    }
+  }
+}

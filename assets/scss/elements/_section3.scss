@@ -1,0 +1,54 @@
+.section3{
+  font-family: "Roboto";
+  background-color: $grey_background;
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+  div{
+    width: 80%;
+    margin: 0 auto;
+    h3{
+      font-size: 2rem;
+      padding-top:2rem;
+    }
+    h3::after{
+      content:"";
+      width: 27.5rem;
+      height: 1rem;
+      background-color: $red; ;
+      display: block;
+    }
+    div {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 5rem;
+      flex-wrap:wrap;
+      flex-basis: 30rem;
+      .Rectangle {
+        background-color: $red;
+        height: 15rem;
+        border-radius: 1rem;
+        position: relative;
+        .boutonplay{
+          width:20%;
+          height:40%;
+          background-image: url("../../assets/images/icone_play.png");
+          background-size: cover;
+          position:absolute;
+          z-index:20;
+          top:50%;
+          left:50%;
+          transform: translate(-50%,-125%);
+        }
+      }
+      .Rectanglegray{
+        background-color: $grey_button;
+        border-radius: 1rem;
+        align-items: center;
+        p{
+          color: white;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
