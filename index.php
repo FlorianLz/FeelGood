@@ -34,18 +34,18 @@ include ('bdd/bd.php');
           <h1>FeelGood</h1>
         </div>
         <div class="menu">
-          <a href="#"><p>Défi du jour</p></a>
+          <a href="#defidujour"><p>Défi du jour</p></a>
           <p>|</p>
-          <a href="#"><p>Réalisations</p></a>
+          <a href="#realisations"><p>Réalisations</p></a>
           <p>|</p>
-          <a href="#"><p>Gagnants</p></a>
+          <a href="#gagnants"><p>Gagnants</p></a>
           <p>|</p>
-          <a href="#"><p>Qui sommes-nous ?</p></a>
+          <a href="#quisommesnous"><p>Qui sommes-nous ?</p></a>
         </div>
       </div>
     </header>
 
-    <section class="section1">
+    <section class="section1" id="defidujour">
       <div>
         <h2>Ensemble, partageons quotidiennement<br>du positif !</h2>
         <div>
@@ -54,14 +54,14 @@ include ('bdd/bd.php');
       </div>
     </section>
 
-    <section class="section2">
+    <section class="section2" id="realisations">
       <div>
         <div>
           <div>
             <h3>Défi du jour :  <span><?php echo($line['description']); ?></span></h3>
           </div>
           <div class="cpt">
-            <p>Fin dans ...</p>
+            <p>Nouveau défi dans ...</p>
             <div id="CompteArebour" class="CompteArebour">
               <div id="contour">
                 <div id="heures"></div>
@@ -93,13 +93,13 @@ include ('bdd/bd.php');
                 <form id="upload_form" enctype="multipart/form-data" method="post">
                     <label for="file1"><img src="assets/images/upload.png"></label>
                     <input type="file" name="file1" id="file1" accept="video/*" class="file_video"><br>
-                    <input type="submit" value="Upload File" id="envoi">
+                    <input type="submit" value="Envoyer" id="envoi">
                     <!--<progress id="progressBar" value="0" max="100" style="width:300px;"></progress>--><p id="percent"></p>
                     <h3 id="status"></h3>
                 </form>
 
                 <video width="400" class="player_video" controls>
-                    <source src="mov_bbb.mp4" id="video_here">
+                    <source src="" id="video_here">
                     Your browser does not support HTML5 video.
                 </video>
             </div>
@@ -110,7 +110,7 @@ include ('bdd/bd.php');
         </div>
     </div>
 
-    <section class="section3">
+    <section class="section3" id="realisations">
       <div>
         <h3>Les réalisations du defi d'hier </h3>
         <div>
@@ -137,7 +137,7 @@ include ('bdd/bd.php');
       </div>
     </section>
 
-    <section class="section4">
+    <section class="section4" id="gagnants">
       <div>
         <h3>Les derniers gagnants</h3>
         <div>
@@ -192,7 +192,7 @@ include ('bdd/bd.php');
       </div>
     </section>
 
-    <div class="whoweare">
+    <div class="whoweare" id="quisommesnous">
       <h2> Qui sommes-nous ? </h2>
 
       <div class="whoweareInfos">
@@ -256,9 +256,9 @@ include ('bdd/bd.php');
 
           // Affichage des résultats dans les divs correspondantes
 
-          document.getElementById("heures").innerHTML = heures;
-          document.getElementById("minutes").innerHTML = minutes;
-          document.getElementById("secondes").innerHTML = secondes;
+          document.getElementById("heures").innerHTML = heures+'h';
+          document.getElementById("minutes").innerHTML = minutes+'min';
+          document.getElementById("secondes").innerHTML = secondes+'sec';
 
         }, 1000);
       }

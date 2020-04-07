@@ -30,6 +30,21 @@ if (!isset($_SESSION['admin'])){
         <input type="text" name="description" placeholder="Description du défi...">
         <input type="submit" value="Envoyer ce défi">
     </form>
+
+    <h1>Les vidéos à valider</h1>
+    <?php
+    $sql="SELECT * FROM videos WHERE visible=0";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    while($line=$query->fetch()){ ?>
+        <p>Défi n°<?php echo $line['id_defi']; ?> <a href="./traitement/acceptervideo.php?id=<?php echo $line['id']; ?>">Accepter cette vidéo</a></p>
+        <video width="400" class="player_video" controls>
+            <source src="/FeelGood<?php echo $line['url']; ?>" id="video_here">
+            Your browser does not support HTML5 video.
+        </video>
+        <?php
+    }
+    ?>
 <?php
 }
 ?>
