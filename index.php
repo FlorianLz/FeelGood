@@ -18,8 +18,8 @@ include ('bdd/bd.php');
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <!-- Chargement des feuilles de style-->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
     <!-- Chargement des scripts utiles -->
     <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
@@ -223,7 +223,7 @@ include ('bdd/bd.php');
     </div>
 
     <footer>
-      <p> © 2020 - Fait avec 🤍 par la DreamTeam</p>
+      <p> © 2020 - Fait avec &#x2661; par la DreamTeam</p>
       <div>
         <img class="icone_footer" src="assets/images/fb.png" alt="icone_fb"/>
         <img class="icone_footer" src="assets/images/twitter.png" alt="icone_twitter"/>

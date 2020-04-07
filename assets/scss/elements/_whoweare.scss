@@ -1,11 +1,10 @@
 .whoweare{
-  background-image: url('/assets/images/interrogation.png');
+  background-image: url('../images/interrogation.png');
   background-color: $grey_background;
   background-repeat: no-repeat;
   background-size: contain;
   padding-top: 10em;
   padding-bottom: 10em;
-  font-family: "Roboto";
 
 
   h2{
@@ -13,7 +12,6 @@
     font-size: 2.5em;
     position: relative;
     color: $grey_fonts;
-    font-family: "RobotoBold";
   }
 
   h2::after{
