@@ -7,7 +7,6 @@ include ('bdd/bd.php');
     $query->execute();
     $line=$query->fetch();
     $id=$line['id'];
-    var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
