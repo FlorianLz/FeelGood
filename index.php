@@ -25,6 +25,15 @@ include ('bdd/bd.php');
 
     <!-- Chargement des scripts utiles -->
     <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+      <script src="https://www.google.com/recaptcha/api.js?render=6LeXw-cUAAAAAHGwghgKBhnB7rJeyszx4uPlA7Mh"></script>
+      <script>
+          grecaptcha.ready(function () {
+              grecaptcha.execute('6LeXw-cUAAAAAHGwghgKBhnB7rJeyszx4uPlA7Mh', { action: 'contact' }).then(function (token) {
+                  var recaptchaResponse = document.getElementById('recaptchaResponse');
+                  recaptchaResponse.value = token;
+              });
+          });
+      </script>
   
   </head>
   
@@ -43,9 +52,43 @@ include ('bdd/bd.php');
           <a href="#gagnants"><p>Gagnants</p></a>
           <p>|</p>
           <a href="#quisommesnous"><p>Qui sommes-nous ?</p></a>
+            <p>|</p>
+            <div id="connect">
+                <p> Me connecter</p>
+            </div>
         </div>
       </div>
     </header>
+
+    <div id="modaleConnect" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="closeConnect" class="closeConnect">&times;</span>
+            <div class="ensembleConnect">
+                <div class="infosConnection">
+                    <h2> Se connecter</h2>
+                    <form action="traitement/connexion.php" class="formConnection" method="post">
+                        <input type="text" name="pseudo" placeholder="Pseudo">
+                        <input type="password" name="mdp" placeholder="Mot de passe">
+                        <input type="submit" value="Connection">
+                    </form>
+                </div>
+
+                <div class="infosInscription">
+                    <h2> Créer un compte </h2>
+                    <form method="POST" id="forminscription" class="formInscription">
+                        <input type="text" name="identifiant" placeholder="Pseudo" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="password" name="mdp" placeholder="Mot de passe" required>
+                        <input type="password" name="mdp2" placeholder="Valider mot de passe" required>
+                        <input type="submit" value="Inscription"/>
+                        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                    </form>
+                    <div id="status"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="section1" id="defidujour">
       <div>
@@ -268,6 +311,7 @@ include ('bdd/bd.php');
       </div>
     </footer>
   <!-- Chargement des scripts utiles -->
+    <script src="./assets/js/dev/upload.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CIntersectionObserver%2CArray.from%2CNodeList.prototype.forEach"></script>
     <script src="./assets/js/script.bundle.js"></script>

@@ -1,0 +1,55 @@
+.closeConnect{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+
+  &:hover,&:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.ensembleConnect{
+  display: flex;
+  margin-top: 2rem;
+  text-align: center;
+  justify-content: space-around;
+
+  form{
+    margin-top: 1rem;
+  }
+
+  .formInscription{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formConnection{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  input[type="text"], input[type="password"], input[type="email"]{
+    border-radius: 0.5rem;
+    border: 0.1rem solid $grey_background;
+    padding: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  input[type="submit"]{
+    background-color: $grey_button;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    border: none;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    margin-top: 0.2rem;
+  }
+
+}
