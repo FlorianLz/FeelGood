@@ -232,8 +232,12 @@ include ('bdd/bd.php');
     <footer>
       <p> © 2020 - Fait avec &#x2661; par la DreamTeam</p>
       <div>
-        <img class="icone_footer" src="assets/images/fb.png" alt="icone_fb"/>
-        <img class="icone_footer" src="assets/images/twitter.png" alt="icone_twitter"/>
+          <a href="https://www.facebook.com/FeelGood-111924453803197/?view_public_for=111924453803197" class="link_footer">
+              <img class="icone_footer" src="assets/images/fb.png" alt="icone_fb"/>
+          </a>
+          <a href="https://twitter.com/FeelGood_62" class="link_footer">
+              <img class="icone_footer" src="assets/images/twitter.png" alt="icone_twitter"/>
+          </a>
       </div>
     </footer>
   <!-- Chargement des scripts utiles -->
