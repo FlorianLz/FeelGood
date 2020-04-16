@@ -19,16 +19,21 @@
       content:"";
       width: 27.5rem;
       height: 0.8rem;
-      background-color: $red; ;
+      background-color: $red;
       display: block;
     }
-    div {
+    .listeVideo{
       display: flex;
       justify-content: space-evenly;
       margin-top: 2rem;
       flex-wrap:wrap;
       flex-basis: 30rem;
       .Rectangle {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        flex-wrap:wrap;
+        flex-basis: 30rem;
         height: max-content;
         border-radius: 1rem;
         position: relative;
@@ -52,11 +57,31 @@
         background-color: $grey_button;
         border-radius: 1rem;
         align-items: center;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        flex-wrap:wrap;
+        flex-basis: 30rem;
         p{
           color: white;
           font-size: 1.5rem;
         }
       }
+    }
+
+    .infosVideo{
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .imgLike{
+      width: 15%;
+    }
+
+    .nbLikes{
+      margin: 0.4rem;
     }
   }
 }
