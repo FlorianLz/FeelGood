@@ -124,7 +124,7 @@ include ('bdd/bd.php');
           $query1->execute(array($hier));
           $line=$query1->fetch()?>
           <h2 class="anciendefi"><?php echo($line['description']); ?></h2>
-          <div>
+          <div class="listeVideo">
               <?php
               while($linee=$query->fetch()){ ?>
                   <div class="Rectangle">
@@ -132,6 +132,25 @@ include ('bdd/bd.php');
                           <source src="/FeelGood<?php echo $linee['url']; ?>" id="video_here">
                           Your browser does not support HTML5 video.
                       </video>
+                      <div class="infosVideo">
+                          <p> Fait par : <?php echo "name" ?></p>
+                          <p class="nbLikes"> <?php echo "135" ?> likes </p>
+                          <?php
+                          //verif s'il est connecté pour pouvoir liker
+                          if(isset($_SESSION['login'])){
+                            //  if(il aime deja la video){
+                                    echo "<img src='assets/images/coeur2.png' class='imgLike' alt='imgLike2'/>";
+
+                           //   } else {
+                                  //il aime pas la video
+                                    echo "<img src='assets/images/coeur1.png' class='imgLike' alt='imgLike1'/>";
+                           //   }
+
+                          } else{
+                              echo "<p> Connecte-toi pour pouvoir liker </p>";
+                          }
+                          ?>
+                      </div>
                   </div>
                  <?php
               }
@@ -232,8 +251,12 @@ include ('bdd/bd.php');
     <footer>
       <p> © 2020 - Fait avec &#x2661; par la DreamTeam</p>
       <div>
-        <img class="icone_footer" src="assets/images/fb.png" alt="icone_fb"/>
-        <img class="icone_footer" src="assets/images/twitter.png" alt="icone_twitter"/>
+          <a href="https://www.facebook.com/FeelGood-111924453803197/?view_public_for=111924453803197" class="link_footer">
+              <img class="icone_footer" src="assets/images/fb.png" alt="icone_fb"/>
+          </a>
+          <a href="https://twitter.com/FeelGood_62" class="link_footer">
+              <img class="icone_footer" src="assets/images/twitter.png" alt="icone_twitter"/>
+          </a>
       </div>
     </footer>
   <!-- Chargement des scripts utiles -->
