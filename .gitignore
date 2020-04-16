@@ -1,3 +1,5 @@
 .idea
 node_modules
 bdd/config.php
+css/styles.css
+css/styles.css.map
