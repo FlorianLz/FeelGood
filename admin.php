@@ -4,13 +4,8 @@ include ('bdd/bd.php');
 session_start();
 
 if (!isset($_SESSION['admin'])){
-    echo 'Merci de vous identifier pour accéder à cette partie.';
+    header('Location: index.php');
     ?>
-    <form action="traitement/connexion.php" method="post">
-        <input type="text" name="pseudo" placeholder="pseudo...">
-        <input type="password" name="mdp" placeholder="mdp...">
-        <input type="submit" value="Se connecter">
-    </form>
     <?php
 }else{
     ?>

@@ -53,9 +53,14 @@ include ('bdd/bd.php');
           <p>|</p>
           <a href="#quisommesnous"><p>Qui sommes-nous ?</p></a>
             <p>|</p>
-            <div id="connect">
-                <p> Me connecter</p>
-            </div>
+            <?php
+            if(isset($_SESSION['login'])){
+                echo '<a href="deconnexion.php">'.$_SESSION['login'].'</a>';
+            }else{ ?>
+                <div id="connect">
+                    <p> Me connecter</p>
+                </div>
+            <?php } ?>
         </div>
       </div>
     </header>
@@ -67,11 +72,12 @@ include ('bdd/bd.php');
             <div class="ensembleConnect">
                 <div class="infosConnection">
                     <h2> Se connecter</h2>
-                    <form action="traitement/connexion.php" class="formConnection" method="post">
+                    <form id="formconnexion" class="formConnection" method="post">
                         <input type="text" name="pseudo" placeholder="Pseudo">
                         <input type="password" name="mdp" placeholder="Mot de passe">
                         <input type="submit" value="Connection">
                     </form>
+                    <div id="statusconnexion"></div>
                 </div>
 
                 <div class="infosInscription">

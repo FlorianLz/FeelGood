@@ -18,3 +18,23 @@ $("#forminscription").submit(function(event){
         }
     });
 });
+$("#formconnexion").submit(function(event){
+    event.preventDefault();
+
+    let formData = {
+        'pseudo' : $('input[name=pseudo]').val(),
+        'mdp' : $('input[name=mdp]').val(),
+    };
+
+    $.post( "traitement/connexion.php", formData, function(data){
+        if(data === 'admin'){
+            window.location.href='./admin.php';
+        }else{
+            if(data == 'ok'){
+                window.location.href='./admin.php';
+            }else{
+                $('#statusconnexion').html(data);
+            }
+        }
+    });
+});
