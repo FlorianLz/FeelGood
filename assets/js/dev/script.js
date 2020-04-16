@@ -31,6 +31,27 @@ $("#upload_form").submit(function(event) {
 
 });
 
+
+//Modal connect
+let modalConnect = document.getElementById("modaleConnect");
+let btnConnect = document.getElementById("connect");
+let spanConnect = document.getElementById("closeConnect");
+
+btnConnect.onclick = function(){
+    modalConnect.style.display = "block";
+};
+
+spanConnect.onclick = function(){
+    modalConnect.style.display = "none";
+};
+
+window.onclick = function(event){
+    if(event.target == modalConnect){
+        modalConnect.style.display = "none";
+    }
+};
+
+
 function uploadFile(){
     let file = document.getElementById("file1").files[0];
     // alert(file.name+" | "+file.size+" | "+file.type);
