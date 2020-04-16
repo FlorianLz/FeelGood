@@ -79,8 +79,8 @@ include ('bdd/bd.php');
                     <form method="POST" id="forminscription" class="formInscription">
                         <input type="text" name="identifiant" placeholder="Pseudo" required>
                         <input type="email" name="email" placeholder="Email" required>
-                        <input type="password" name="mdp" placeholder="Mot de passe" required>
-                        <input type="password" name="mdp2" placeholder="Valider mot de passe" required>
+                        <input type="password" name="mdpinscription" placeholder="Mot de passe" required>
+                        <input type="password" name="mdp2inscription" placeholder="Valider mot de passe" required>
                         <input type="submit" value="Inscription"/>
                         <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
                     </form>
@@ -311,8 +311,8 @@ include ('bdd/bd.php');
       </div>
     </footer>
   <!-- Chargement des scripts utiles -->
-    <script src="./assets/js/dev/upload.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="./assets/js/dev/upload.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CIntersectionObserver%2CArray.from%2CNodeList.prototype.forEach"></script>
     <script src="./assets/js/script.bundle.js"></script>
     <script>

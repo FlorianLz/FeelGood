@@ -47,6 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                                 $sql="INSERT INTO utilisateurs VALUES (NULL, ?, ?, PASSWORD(?), 0)";
                                 $query=$pdo->prepare($sql);
                                 $query->execute(array($email,$pseudo,$mdp));
+                                $id_nouveau = $pdo->lastInsertId();
+                                session_start();
+                                $_SESSION['login']=$pseudo;
+                                $_SESSION['id']=$id_nouveau;
                                 echo 'OK';
                             }else{
                                 echo 'Vos mots de passe doivent être identiques...';
