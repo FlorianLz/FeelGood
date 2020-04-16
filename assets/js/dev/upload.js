@@ -9,9 +9,12 @@ $("#forminscription").submit(function(event){
         'mdp2' : $('input[name=mdp2]').val(),
         'recaptcha_response' : $('input[name=recaptcha_response]').val(),
     };
-    console.log(formData);
 
-    $.post( "traitement/inscription.php", formData, function(data) {
-        $('#status').html(data);
+    $.post( "traitement/inscription.php", formData, function(data){
+        if(data === 'OK'){
+            window.location.href='./index.php'
+        }else{
+            $('#status').html(data);
+        }
     });
 });
