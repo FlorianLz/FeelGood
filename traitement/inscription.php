@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $recaptcha = json_decode($recaptcha);
 
     // Take action based on the score returned:
-    if ($recaptcha->score >= 0.2) {
+    if ($recaptcha->score >= 0.5) {
         //C'est ok, on continue
         if(isset($_POST['identifiant']) && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['mdp2'])){
             include ('../bdd/config.php');

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include ('bdd/config.php');
 include ('bdd/bd.php');
     $sql="SELECT *, DATE_FORMAT(defis.date,'%d/%m/%Y') AS date_formate FROM defis ORDER BY id DESC LIMIT 1";
@@ -6,6 +7,7 @@ include ('bdd/bd.php');
     $query->execute();
     $line=$query->fetch();
     $id=$line['id'];
+    var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +118,7 @@ include ('bdd/bd.php');
         <h3>Les réalisations du défi précédent </h3>
           <?php
           $hier=$id-1;
-          $sql="SELECT url FROM videos WHERE id_defi=? AND visible=1 ORDER by id DESC LIMIT 5";
+          $sql="SELECT url, utilisateurs.pseudo, videos.id AS idvideo FROM videos JOIN utilisateurs ON utilisateurs.id=videos.id_utilisateur WHERE id_defi=? AND visible=1 ORDER by videos.id DESC LIMIT 5";
           $sql1="SELECT description FROM defis WHERE id=?";
           $query=$pdo->prepare($sql);
           $query1=$pdo->prepare($sql1);
@@ -126,26 +128,33 @@ include ('bdd/bd.php');
           <h2 class="anciendefi"><?php echo($line['description']); ?></h2>
           <div class="listeVideo">
               <?php
-              while($linee=$query->fetch()){ ?>
+              while($linee=$query->fetch()){
+                  //On récupère le nb de likes
+                  $sqlnblike="SELECT id FROM likes WHERE video_id=?";
+                  $querynblike = $pdo->prepare($sqlnblike);
+                  $querynblike->execute(array($linee['idvideo']));
+                  $nblike=$querynblike->rowCount();
+                  $idVideo=$linee['idvideo'];
+                  ?>
                   <div class="Rectangle">
                       <video class="player_video" controls>
                           <source src="/FeelGood<?php echo $linee['url']; ?>" id="video_here">
                           Your browser does not support HTML5 video.
                       </video>
                       <div class="infosVideo">
-                          <p> Fait par : <?php echo "name" ?></p>
-                          <p class="nbLikes"> <?php echo "135" ?> likes </p>
+                          <p> Fait par : <?php echo $linee['pseudo']; ?></p>
+                          <p id="nblike<?php echo $idVideo?>"class='nbLikes'><?php echo $nblike; ?> likes </p>
                           <?php
                           //verif s'il est connecté pour pouvoir liker
                           if(isset($_SESSION['login'])){
-                            //  if(il aime deja la video){
-                                    echo "<img src='assets/images/coeur2.png' class='imgLike' alt='imgLike2'/>";
-
-                           //   } else {
-                                  //il aime pas la video
-                                    echo "<img src='assets/images/coeur1.png' class='imgLike' alt='imgLike1'/>";
-                           //   }
-
+                              $sqllike='SELECT id FROM likes WHERE video_id=? AND utilisateur_id=?';
+                              $querylike = $pdo->prepare($sqllike);
+                              $querylike->execute(array($linee['idvideo'],$_SESSION['id']));
+                              if($linelike = $querylike->fetch()){
+                                  echo "<a id='like$idVideo' class='togglelike' data-id='$idVideo'><img src='assets/images/coeur2.png' class='imgLike' alt='imgLike2'/></a>";
+                              }else{
+                                  echo "<a id='like$idVideo' class='togglelike' data-id='$idVideo'><img src='assets/images/coeur1.png' class='imgLike' alt='imgLike1'/></a>";
+                              }
                           } else{
                               echo "<p> Connecte-toi pour pouvoir liker </p>";
                           }

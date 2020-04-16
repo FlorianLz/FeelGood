@@ -77,3 +77,20 @@ $(document).on("change", ".file_video", function(evt) {
     $source[0].src = URL.createObjectURL(this.files[0]);
     $source.parent()[0].load();
 });
+
+$('.togglelike').click(function (e) {
+    e.preventDefault();
+    console.log('clic');
+    let idVideo = $(this).attr('data-id');
+
+    let formData={
+        'idVideo' : idVideo,
+    };
+
+    $.post("./traitement/like.php", formData, function (data) { //On envoi le tout vers la page de traitement
+        $('#like'+idVideo).html(data);
+        $.post("./traitement/nblikes.php", formData, function (data) { //On envoi le tout vers la page de traitement
+            $('#nblike'+idVideo).html(data);
+        });
+    });
+});
